@@ -1,7 +1,7 @@
-```powershell
 I.Récolte d'informations
 
 🌞 Adresses IP de ta machine
+```powershell
 
 PS C:\Users\hugoa> ipconfig
 
@@ -21,8 +21,8 @@ Carte Ethernet Ethernet :
    Suffixe DNS propre à la connexion. . . :
 ```
 -----------------------------------------------------------------------------------------------------------------
-```powershell
 🌞 Si t'as un accès internet normal, d'autres infos sont forcément dispos...
+```powershell
 
 PS C:\Users\hugoa> ipconfig /all
 
@@ -47,8 +47,8 @@ Carte réseau sans fil Wi-Fi :
    NetBIOS sur Tcpip. . . . . . . . . . . : Activé
 ```
 ---------------------------------------------------------------------------------------------------------
-```powershell
 🌟 BONUS : Détermine s'il y a un pare-feu actif sur ta machine
+```powershell
 
 PS C:\Users\hugoa> Get-NetFirewallProfile | ft Name,Enabled
 
@@ -85,10 +85,10 @@ RemoteDynamicKeywordAddresses : {}
 PolicyAppId                   :
 ```
 ------------------------------------------------------------------------------------------------------------
-```powershell
 II.Utiliser le réseau
-
 🌞 Envoie un ping vers...
+```powershell
+
 
 PS C:\Users\hugoa> ping  10.33.77.164
 
@@ -118,8 +118,9 @@ Durée approximative des boucles en millisecondes :
     Minimum = 0ms, Maximum = 0ms, Moyenne = 0ms
 ```
  -------------------------------------------------------------------------------------------------------
+ 🌞 On continue avec ping. Envoie un ping vers...  
  ```powershell
- 🌞 On continue avec ping. Envoie un ping vers...   
+   
 
  PS C:\Users\hugoa> ping 10.33.77.254
 
@@ -163,8 +164,9 @@ Durée approximative des boucles en millisecondes :
 ```
 
 ------------------------------------------------------------------------------------------------------
-```powershell
 🌞 Faire une requête DNS à la main
+```powershell
+
 PS C:\Users\hugoa> nslookup 
 
 Serveur par dÚfaut :   dns.google
@@ -217,5 +219,40 @@ Addresses:  2620:7:6002:0:466:39ff:fe7f:1826
 ```
 -------------------------------------------------------------------------------------------------------------------       
 III. Sniffer le réseau  
+🌞 Effectue un scan du réseau auquel tu es connecté
+```powershell
+
+PS C:\Users\hugoa> nmap.exe -sn -PR  192.168.1.0/24
+Starting Nmap 7.95 ( https://nmap.org ) at 2024-10-06 16:35 Paris, Madrid (heure dÆÚtÚ)
+Nmap scan report for 192.168.1.3
+Host is up (0.083s latency).
+MAC Address: 44:6F:F8:0B:53:89 (Dyson Limited)
+Nmap scan report for 192.168.1.4
+Host is up (0.014s latency).
+MAC Address: 60:AB:D2:A9:67:16 (Bose)
+Nmap scan report for 192.168.1.22
+Host is up (0.17s latency).
+
+```
+>#### Comme les adresse ip entre la 192.168.1.4 et 192.168.1.22 ne sont pas apparuent , alors j'en déduis que elles ne sont pas attribuées.Donc pour la suite je vais modifier mon adresse ip par 192.168.1.13 :
+🌞 Changer d'adresse IP
+```powershell
+
+PS C:\Windows\system32> New-NetIPAddress -InterfaceAlias Wi-Fi -IPAddress 192.168.1.13 -PrefixLength 24 -DefaultGateway 192.168.1.254
 
 
+IPAddress         : 192.168.1.13
+InterfaceIndex    : 10
+InterfaceAlias    : Wi-Fi
+AddressFamily     : IPv4
+Type              : Unicast
+PrefixLength      : 24
+PrefixOrigin      : Manual
+SuffixOrigin      : Manual
+AddressState      : Tentative
+ValidLifetime     :
+PreferredLifetime :
+SkipAsSource      : False
+PolicyStore       : ActiveStore
+
+```
