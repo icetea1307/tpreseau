@@ -105,8 +105,34 @@ a
 # 1. Serveur web
 🌞 Utilisez Wireshark pour capturer du trafic HTTP
 ```powershell
-screen envoyer
+ netstat -a -b -n
 ```
 2. Autres services
 ```powershell
-
+ netstat -a -b -n
+ ```
+ ```powershell
+ discord
+ port :443
+ adresse ip :
+```
+```powershell
+ Teams
+ port :443
+ adresse ip :172.217.20.206
+ ```
+ ```powershell
+ youtube
+ port :80
+ adresse ip :104.18.13.46
+```
+```powershell
+ edge
+ port : 8009
+ adresse ip : 192.168.1.4
+```
+```powershell
+lunarclient
+port : 443
+adresse ip :104.18.28.130
+```
