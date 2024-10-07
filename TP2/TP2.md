@@ -101,3 +101,12 @@ salut
 salut
 a
 ```
+### III. Analyse de vos applications usuelles
+# 1. Serveur web
+🌞 Utilisez Wireshark pour capturer du trafic HTTP
+```powershell
+screen envoyer
+```
+2. Autres services
+```powershell
+
