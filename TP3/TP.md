@@ -110,3 +110,62 @@ PS C:\Windows\system32> arp -a
    Adresse IPv4. . . . . . . . . . . . . .: 192.168.80.113
    Masque de sous-réseau. . . . . . . . . : 255.255.255.0
    Passerelle par défaut. . . . . . . . . : 192.168.80.115
+   ```
+   ☀️ Pingz !
+   ```powershell
+   PS C:\Windows\system32> ping 192.168.80.126
+   ```
+   ```powershell
+   Envoi d’une requête 'Ping'  192.168.80.126 avec 32 octets de données :
+Réponse de 192.168.80.126 : octets=32 temps=13 ms TTL=128
+Réponse de 192.168.80.126 : octets=32 temps=70 ms TTL=128
+Réponse de 192.168.80.126 : octets=32 temps=75 ms TTL=128
+Réponse de 192.168.80.126 : octets=32 temps=49 ms TTL=128
+
+Statistiques Ping pour 192.168.80.126:
+    Paquets : envoyés = 4, reçus = 4, perdus = 0 (perte 0%),
+Durée approximative des boucles en millisecondes :
+    Minimum = 13ms, Maximum = 75ms, Moyenne = 51ms
+    ```
+    ```powershell
+    PS C:\Windows\system32> ping youtube.com
+    ```
+    ```powershell
+    Envoi d’une requête 'ping' sur youtube.com [172.217.20.206] avec 32 octets de données :
+Réponse de 172.217.20.206 : octets=32 temps=78 ms TTL=113
+Délai d’attente de la demande dépassé.
+Réponse de 172.217.20.206 : octets=32 temps=68 ms TTL=113
+Réponse de 172.217.20.206 : octets=32 temps=68 ms TTL=113
+
+Statistiques Ping pour 172.217.20.206:
+    Paquets : envoyés = 4, reçus = 3, perdus = 1 (perte 25%),
+Durée approximative des boucles en millisecondes :
+    Minimum = 68ms, Maximum = 78ms, Moyenne = 71ms
+    ```
+2. ARP
+☀️ Affichez votre table ARP !
+```powershell
+PS C:\Windows\system32> arp -a
+```
+```powershell
+Interface : 192.168.80.113 --- 0xa
+  Adresse Internet      Adresse physique      Type
+  192.168.80.69         98-bd-80-8b-c9-fa     dynamique
+  192.168.80.115        56-3d-07-f5-7b-07     dynamique
+  192.168.80.126        84-c5-a6-76-62-b8     dynamique
+  192.168.80.169        98-bd-80-8b-c9-fa     dynamique
+  192.168.80.200        2e-aa-24-77-3e-e2     dynamique
+  192.168.80.255        ff-ff-ff-ff-ff-ff     statique
+  224.0.0.22            01-00-5e-00-00-16     statique
+  224.0.0.251           01-00-5e-00-00-fb     statique
+  239.255.255.250       01-00-5e-7f-ff-fa     statique
+  255.255.255.255       ff-ff-ff-ff-ff-ff     statique
+
+Interface : 192.168.56.1 --- 0x13
+  Adresse Internet      Adresse physique      Type
+  192.168.56.255        ff-ff-ff-ff-ff-ff     statique
+  224.0.0.22            01-00-5e-00-00-16     statique
+  224.0.0.251           01-00-5e-00-00-fb     statique
+  224.0.0.252           01-00-5e-00-00-fc     statique
+  239.255.255.250       01-00-5e-7f-ff-fa     statique
+  ```
