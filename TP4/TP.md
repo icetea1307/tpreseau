@@ -6,11 +6,11 @@
 
 
 ```powershell
-Your (client) IP address: 10.33.77.164
+Bootp Flags :Your (client) IP address: 10.33.77.164
 ```
 ```powershell
-Domain Name Server: 8.8.8.8
+ Option 6 :Domain Name Server: 8.8.8.8
 ```
 ```powershell
-Router: 10.33.79.254
+Option 3 :Router: 10.33.79.254
 ```
