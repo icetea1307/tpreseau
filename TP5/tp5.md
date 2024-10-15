@@ -22,6 +22,7 @@ Client 2
 link/ether 08:00:27:ef:cd:69 brd ff:ff:ff:ff:ff:ff
 inet 10.5.1.12/24 brd 10.5.1.255 scope global enp0s8
 ```
+```powershell
 Ping client 2 vers client 1
 hugo@hugo-VirtualBox:~$ ping 10.5.1.11
 PING 10.5.1.11 (10.5.1.11) 56(84) bytes of data
