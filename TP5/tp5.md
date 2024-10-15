@@ -85,4 +85,33 @@ III.Serveur SSH
 LISTEN 0      128          0.0.0.0:22        0.0.0.0:*    users:(("sshd",pid=707,fd=3))
 LISTEN 0      128             [::]:22           [::]:*    users:(("sshd",pid=707,fd=4))    
 ```
-    
+```powershell
+☀️ Sur routeur.tp5.b1, vérifier que ce port est bien ouvert
+```
+```powershell
+[hugo@hugo ~]# sudo firewall-cmd --list-all
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: enp0s3 enp0s8
+  sources:
+  services: cockpit dhcpv6-client ssh
+  ports: 22/tcp
+  protocols:
+  forward: yes
+  masquerade: yes
+  forward-ports:
+  source-ports:
+  icmp-blocks:
+  rich rules:
+[root@routeur hugo]#
+```
+IV. Serveur DHCP
+1. Le but
+```powershell
+☀️ Installez et configurez un serveur DHCP sur la machine routeur.tp5.b1
+```
+```powershell
+[hugo@hugo ~]# dnf -y install dhcp-server
+[hugo@hugo ~]# sudo nano dhcpd.conf
+```
