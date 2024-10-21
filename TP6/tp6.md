@@ -36,3 +36,24 @@ I. Le setup
 LISTEN 0      511          0.0.0.0:80        0.0.0.0:*    users:(("nginx",pid=1447,fd=6),("nginx",pid=1446,fd=6),("nginx",pid=1445,fd=6))
 LISTEN 0      511             [::]:80           [::]:*    users:(("nginx",pid=1447,fd=7),("nginx",pid=1446,fd=7),("nginx",pid=1445,fd=7))
 ```
+```powershell
+☀️ Ouvrir ce port dans le firewall
+```
+```powershell
+[root@web ~]# sudo firewall-cmd --list-all
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: enp0s3 enp0s8
+  sources:
+  services: cockpit dhcpv6-client ssh
+  ports: 80/tcp
+  protocols:
+  forward: yes
+  masquerade: no
+  forward-ports:
+  source-ports:
+  icmp-blocks:
+  rich rules:
+  ```
+  
