@@ -43,3 +43,47 @@ D. Analyze
 🌞 Capture tcp_http.pcap
 ```
 ```powershell
+🌞 Voir la connexion établie
+```
+```powershell
+hugo@client1:~$ ss -t -a
+```
+```powershell
+ESTAB           0               0                                   10.7.1.101:50254                              10.7.1.11:http
+
+```
+```powershell
+hugo@client1:~$ curl http://sitedefou.tp7.b1
+meow !
+```
+2. On rajoute un S
+A. Config
+```powershell
+🌞 Lister les ports en écoute sur la machine
+```
+```powershell
+[root@web hugoa]# sudo ss -lnpt
+State    Recv-Q   Send-Q     Local Address:Port      Peer Address:Port   Process
+LISTEN   0        511            10.7.1.11:443            0.0.0.0:*       users:(("nginx",pid=1473,fd=6),("nginx",pid=1472,fd=6),("nginx",pid=1471,fd=6))
+```
+🌞 Gérer le firewall
+```powershell
+[root@web hugoa]# sudo firewall-cmd --permanent --add-port=443/tcp
+success
+```
+```powershell
+[root@web hugoa]# sudo firewall-cmd --reload
+success
+```
+```powershell
+[root@web hugoa]# sudo firewall-cmd --permanent --remove-port=80/tcp
+success
+```
+```powershell
+[root@web hugoa]# sudo firewall-cmd --reload
+success
+```
+III. Serveur VPN
+1. Install et conf Wireguard
+```powershell
+🌞 Prouvez que vous avez bien une nouvelle carte réseau wg0
