@@ -87,3 +87,36 @@ III. Serveur VPN
 1. Install et conf Wireguard
 ```powershell
 🌞 Prouvez que vous avez bien une nouvelle carte réseau wg0
+```powershell
+[root@vpn hugoa]# ip a
+```
+```powershell  
+       valid_lft forever preferred_lft forever
+4: wg0: <POINTOPOINT,NOARP,UP,LOWER_UP> mtu 1420 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/none
+    inet 10.7.200.1/24 scope global wg0
+       valid_lft forever preferred_lft forever
+```
+🌞 Déterminer sur quel port écoute Wireguard
+```powershell
+[root@vpn hugoa]# sudo ss -lnpu | grep 51820
+State          Recv-Q         Send-Q                 Local Address:Port                  Peer Address:Port        Process
+
+UNCONN         0              0                            0.0.0.0:51820                      0.0.0.0:*
+
+UNCONN         0              0                               [::]:51820                         [::]:*
+```
+🌞 Ouvrez ce port dans le firewall
+```powershell
+[root@vpn hugoa]# sudo sysctl -w net.ipv4.ip_forward=1
+net.ipv4.ip_forward = 1
+[root@vpn hugoa]# sudo sysctl -w net.ipv6.conf.all.forwarding=1
+net.ipv6.conf.all.forwarding = 1
+[root@vpn hugoa]# sudo firewall-cmd --add-interface=wg0 --zone=public --permanent
+success
+[root@vpn hugoa]# sudo firewall-cmd --add-masquerade --permanent
+success
+[root@vpn hugoa]# sudo firewall-cmd --reload
+success
+```
+2. Ajout d'un client VPN
